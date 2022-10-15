@@ -108,10 +108,12 @@ const Top = styled.div`
 
   p {
     padding-left: 22px;
+    cursor: pointer;
   }
 
   h1 {
     color: #5d9040;
+    cursor: pointer;
   }
 `;
 

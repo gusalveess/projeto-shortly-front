@@ -125,6 +125,7 @@ const Top = styled.div`
   p {
     padding-left: 22px;
     color: #5D9040;
+    cursor: pointer;
   }
 `;
 

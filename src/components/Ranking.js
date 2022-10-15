@@ -57,7 +57,7 @@ export default function Ranking() {
           </div>
           <div>
             <p onClick={() => navigate("/logged")}>Home</p>
-            <h1>Ranking</h1>
+            <h1 onClick={() => navigate("/ranking")}>Ranking</h1>
             <p onClick={Remove}>Sair</p>
           </div>
         </Top>
