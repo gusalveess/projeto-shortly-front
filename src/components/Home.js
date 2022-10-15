@@ -131,6 +131,7 @@ const Menu = styled.div`
     align-items: center;
     font-family: "Lexend Deca", sans-serif;
     margin-bottom: 30px;
+    cursor: pointer;
   }
 
   h1 {

@@ -172,6 +172,9 @@ const Menu = styled.div`
   }
 
   button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 50px;
     width: 140px;
     border-radius: 12px;
