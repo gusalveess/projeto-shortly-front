@@ -325,7 +325,7 @@ const Flex = styled.div`
     font-family: "Lexend Deca", sans-serif;
     font-weight: 400;
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
   }
 
   span {

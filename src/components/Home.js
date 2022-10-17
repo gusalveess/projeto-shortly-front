@@ -44,7 +44,7 @@ export default function Home() {
         <Top>
           <div></div>
           <div>
-            <h1 onClick={() => navigate("/signIn")}>Entrar</h1>
+            <p onClick={() => navigate("/signIn")}>Entrar</p>
             <p onClick={() => navigate("/signUp")}>Cadastrar-se</p>
           </div>
         </Top>
@@ -116,6 +116,7 @@ const Top = styled.div`
 
   p {
     padding-left: 22px;
+    cursor: pointer;
   }
 `;
 
