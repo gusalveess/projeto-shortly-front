@@ -21,7 +21,7 @@ export default function Signup() {
         confirmPassword: passwordConfirm
     }
 
-    const promise = axios.post('https://short-backend.herokuapp.com/signUp', body)
+    const promise = axios.post('https://shortly-aoz9.onrender.com/signUp', body)
     promise.then(() => {
         alert('Cadastrado com sucesso!')
         navigate('/')

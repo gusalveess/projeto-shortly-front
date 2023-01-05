@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function UserLinks(props) {
-  const urlShort = `https://short-backend.herokuapp.com/urls/open/${props.shortUrl}`;
+  const urlShort = `https://shortly-aoz9.onrender.com/open/${props.shortUrl}`;
   const getting = localStorage.getItem("token");
   const stringfy = JSON.stringify(getting);
   const token = JSON.parse(stringfy);
@@ -19,7 +19,7 @@ function UserLinks(props) {
       };
 
       const promise = axios.delete(
-        `https://short-backend.herokuapp.com/urls/${props.id}`,
+        `https://shortly-aoz9.onrender.com/urls/${props.id}`,
         config
       );
       promise.then(() => {
@@ -77,7 +77,7 @@ export default function HomeOne() {
       },
     };
 
-    const promise = axios.get("https://short-backend.herokuapp.com/users/me", config);
+    const promise = axios.get("https://shortly-aoz9.onrender.com/users/me", config);
     promise.then((res) => {
       setData(res.data.name);
       localStorage.setItem('Name', res.data.name)
@@ -96,7 +96,7 @@ export default function HomeOne() {
       },
     };
 
-    const promise = axios.post("https://short-backend.herokuapp.com/urls/shorten", body, config);
+    const promise = axios.post("https://shortly-aoz9.onrender.com/urls/shorten", body, config);
     promise.then(() => {
       setTimeout(() => {
         window.location.reload(true);

@@ -20,7 +20,7 @@ export default function SignIn() {
       password: password,
     };
 
-    const promise = axios.post("https://short-backend.herokuapp.com/signIn", body);
+    const promise = axios.post("https://shortly-aoz9.onrender.com/signIn", body);
     promise.then((res) => {
       setToken(localStorage.setItem("token", res.data.token));
       navigate("/logged");

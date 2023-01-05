@@ -20,7 +20,7 @@ export default function Home() {
 
   useEffect(() => {
     verify();
-    const promisse = axios.get(`https://short-backend.herokuapp.com/ranking`);
+    const promisse = axios.get(`https://shortly-aoz9.onrender.com/ranking`);
     promisse.then((res) => {
       setData(res.data);
     });
