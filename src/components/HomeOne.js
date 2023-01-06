@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ThreeDots } from "react-loader-spinner";
 import { useEffect, useState } from "react";
 
 function UserLinks(props) {
@@ -28,8 +29,8 @@ function UserLinks(props) {
         }, 100);
       });
       promise.catch((error) => {
-        if(error.response) {
-          alert(error.response.data)
+        if (error.response) {
+          alert(error.response.data);
         }
       });
     }
@@ -60,7 +61,7 @@ export default function HomeOne() {
   const [subData, setSubData] = useState([]);
   const [send, setSend] = useState("Encurtar Link");
   const [url, setUrl] = useState("");
-  const [disable, setDisable] = useState(false)
+  const [disable, setDisable] = useState(false);
   const navigate = useNavigate();
 
   function verify() {
@@ -77,10 +78,13 @@ export default function HomeOne() {
       },
     };
 
-    const promise = axios.get("https://shortly-aoz9.onrender.com/users/me", config);
+    const promise = axios.get(
+      "https://shortly-aoz9.onrender.com/users/me",
+      config
+    );
     promise.then((res) => {
       setData(res.data.name);
-      localStorage.setItem('Name', res.data.name)
+      localStorage.setItem("Name", res.data.name);
       setSubData(res.data.shortenedUrls);
     });
   }, []);
@@ -96,22 +100,27 @@ export default function HomeOne() {
       },
     };
 
-    const promise = axios.post("https://shortly-aoz9.onrender.com/urls/shorten", body, config);
+    const promise = axios.post(
+      "https://shortly-aoz9.onrender.com/urls/shorten",
+      body,
+      config
+    );
     promise.then(() => {
       setTimeout(() => {
         window.location.reload(true);
       }, 100);
     });
     promise.catch((error) => {
-      if(error.response) {
-        alert(error.response.data)
+      if (error.response) {
+        alert(error.response.data);
       }
     });
   }
 
   function HandleForm(e) {
     e.preventDefault();
-    setDisable(true)
+    setDisable(true);
+    setSend(<ThreeDots color="#FFFFFF" height={13} width={51} />);
     Post();
   }
 
@@ -129,11 +138,13 @@ export default function HomeOne() {
       <Body>
         <Top>
           <div>
-            <h1>Olá, {data}</h1>
+            <h1>
+              Olá, {subData.length != 0 ? data : "o site está carregando :)"}
+            </h1>
           </div>
           <div>
             <h1>Home</h1>
-            <p onClick={() => navigate('/ranking')}>Ranking</p>
+            <p onClick={() => navigate("/ranking")}>Ranking</p>
             <p onClick={Remove}>Sair</p>
           </div>
         </Top>
@@ -157,15 +168,19 @@ export default function HomeOne() {
           </form>
 
           <Links>
-            {subData.map((item, index) => (
-              <UserLinks
-                key={index}
-                url={item.url}
-                shortUrl={item.shortUrl}
-                visitCount={item.visitCount}
-                id={item.id}
-              />
-            ))}
+            {subData.length != 0 ? (
+              subData.map((item, index) => (
+                <UserLinks
+                  key={index}
+                  url={item.url}
+                  shortUrl={item.shortUrl}
+                  visitCount={item.visitCount}
+                  id={item.id}
+                />
+              ))
+            ) : (
+              <ThreeDots color="#5D9040" height={53} width={101} />
+            )}
           </Links>
         </Menu>
       </Body>
@@ -290,6 +305,10 @@ const Menu = styled.div`
     }
 
     button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       height: 60px;
       width: 90px;
       margin-right: 10px;

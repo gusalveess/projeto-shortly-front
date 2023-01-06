@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
+import { ThreeDots } from "react-loader-spinner";
 import { useState, useEffect } from "react";
 
 export default function Ranking() {
@@ -73,6 +74,7 @@ export default function Ranking() {
             <p>Ranking</p>
           </div>
 
+{ data.length != 0 ?
           <Ranked>
             <div>
               <p>1.</p>
@@ -96,7 +98,8 @@ export default function Ranking() {
                 />
               ))}
             </div>
-          </Ranked>
+          </Ranked> : <ThreeDots color="#5D9040" height={44} width={90}/>
+}
         </Menu>
       </Body>
     </>
