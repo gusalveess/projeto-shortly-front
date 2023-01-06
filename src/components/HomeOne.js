@@ -4,7 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function UserLinks(props) {
-  const urlShort = `https://shortly-aoz9.onrender.com/open/${props.shortUrl}`;
+  const urlShort = `https://shortly-aoz9.onrender.com/urls/open/${props.shortUrl}`;
   const getting = localStorage.getItem("token");
   const stringfy = JSON.stringify(getting);
   const token = JSON.parse(stringfy);
